@@ -1,0 +1,2 @@
+let g:syntastic_cpp_include_dirs = ['./include', './build/test/include', './third_party/googletest/googlemock/include', './third_party/googletest/googletest/include' ]
+let g:syntastic_cpp_compiler_options = ' -std=c++14 -stdlib=libc++'

@@ -1,0 +1,265 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/all.min.css">
+		<!-- <link rel="stylesheet" href="css/theme/black.css"> -->
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="/css/asciinema-player.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+        <section data-background="/images/background.png">
+          <h1>
+            <div><img src="/images/petsapp.svg" width="10%" class="plain" style="background: none"></div>
+            <div>PetsApp</div>
+          </h1>
+          <h2 class="subtitle">How i started my fake startup with the <b>Janus Mobile SDK</b></h2>
+          <div style="margin-top: 100px">
+            <div style="width: 80%; margin-left: auto; margin-right: auto">
+              <div style="width: 45%; display: inline-block">
+                <img src="/images/januscon.png" height="75px">
+              </div>
+              <div style="width: 45%; margin-left: 5%; display: inline-block">
+                <div style="display: table-row">
+                  <div style="display: table-cell">
+                    <img src="/images/me.png" style="border-radius: 50%" height="75px">
+                  </div>
+                  <div style="display: table-cell; padding-left: 25px; padding-top: 10px; vertical-align: top">
+                    <ul class="plain">
+                      <li><div style="text-align: center; width: 15px; display: inline-block"><i class="far fa-id-badge"></i></div> Pasquale Boemio</li>
+                      <li><div style="text-align: center; width: 15px; display: inline-block"><i class="far fa-envelope"></i></div> <a href="mailto:boemianrapsodi@gmail.com">boemianrapsodi@gmail.com</a></li>
+                      <li><div style="text-align: center; width: 15px; display: inline-block"><i class="fab fa-github"></i></div> <a href="https://github.com/helloiampau">@helloiampau</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top: 75px">
+            <ul style="font-size: 15px">
+              <li style="text-align: center"><div style="text-align: center; width: 30px; display: inline-block"><i class="fas fa-map-marked-alt"></i></div> Naples (IT)</li>
+              <li style="text-align: center"><div style="text-align: center; width: 30px; display: inline-block"><i class="far fa-calendar-alt"></i></div> September 23rd-25th 2019</li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h1><i class="far fa-handshake"></i> Hello!</h1>
+        </section>
+        <section data-background-color="#303F4C">
+          <a href="https://www.statwolf.com"><img src="/images/statwolf.svg" width="30%"></a>
+        </section>
+        <section>
+          <img src="/images/trip.png" width="80%" style="border-radius: 3%;">
+        </section>
+        <section>
+          <h1><i class="fas fa-fish"></i> Boris</h1>
+          <video style="border-radius: 5%" loop="true" muted="true" autoplay="true" width="30%">
+            <source src="/images/boris.mp4">
+          </video>
+        </section>
+        <section>
+          <h1>
+            <div><img src="/images/petsapp.svg" width="10%" class="plain" style="background: none"></div>
+            <div>PetsApp</div>
+          </h1>
+          <h2>A video chat for puppies</h2>
+        </section>
+        <section>
+          <h1><i class="fas fa-cogs"></i> Application requirements</h1>
+          <ul>
+            <li class="fragment"><i class="far fa-user"></i> A user should connect to his own room</li>
+            <li class="fragment"><i class="fas fa-paw"></i> Each pet should have a streaming device</li>
+            <li class="fragment"><i class="fas fa-video"></i>The user should watch all the pet feeds at the same time</li>
+          </ul>
+          <h1 class="fragment">A basic video room!</h1>
+        </section>
+        <section>
+          <h1><i class="fas fa-gift"></i> Minimum viable product</h1>
+          <img src="/images/complete-mvp.svg">
+        </section>
+        <section data-transition="slide-in none-out">
+          <h1><i class="fas fa-server"></i> Server requirements</h1>
+          <div style="height: 200px">
+            <ul>
+              <li class="fragment"><i class="fas fa-users"></i> { User, Room } Management API</li>
+              <li class="fragment"><i class="fas fa-phone"></i> WebRTC Signalling Server</li>
+              <li class="fragment"><i class="fas fa-random"></i> { MC, SF } Unit</li>
+            </ul>
+          </div>
+        </section>
+        <section data-transition="none-in slide-out">
+          <h1><i class="fas fa-server"></i> Server requirements</h1>
+          <div style="height: 200px">
+            <img src="/images/janus.png">
+          </div>
+        </section>
+        <section>
+          <h1><i class="fas fa-gift"></i> Minimum viable product</h1>
+          <img src="/images/janus-mvp.svg">
+        </section>
+        <section>
+          <img src="/images/serverless.jpg">
+        </section>
+        <section data-state="run-janus">
+          <asciinema-player id="run-janus" src="/cast/runjanus.cast" preload="true" idle-time-limit="1" rows="40"></asciinema>
+        </section>
+        <section>
+          <h1><i class="fas fa-server"></i> Client requirements</h1>
+          <ul>
+            <li class="fragment"><i class="fas fa-user-friends"></i> Cross-Platform application (iOS, Android, Linux)</li>
+            <li class="fragment"><i class="fas fa-exclamation"></i><b>Native Application</b></li>
+            <li class="fragment"><i class="fas fa-thumbs-down"></i>No vendor lock-in</li>
+          </ul>
+        </section>
+        <section>
+          <h1><i class="fas fa-heart-broken"></i> No solutions currently available!</h1>
+        </section>
+        <section>
+          <h1><a href="https://github.com/helloiampau/janus-client">janus-client SDK</a></h1>
+          <h2>handcrafted with <i class="fas fa-heart"></i> by @helloiampau and Meetecho S.R.L.</h2>
+        </section>
+        <section>
+          <h1><a href="https://github.com/helloiampau/janus-client">janus-client SDK</a></h1>
+          <ul>
+            <li class="fragment"><i class="fas fa-check"></i> Cross-Platform SDK</li>
+            <li class="fragment"><i class="fas fa-mobile"></i> Mobile-First (iOS, Android)</li>
+            <li class="fragment"><i class="fas fa-box-open"></i> Supports Janus API out-of-the-box</li>
+            <li class="fragment"><i class="fab fa-github"></i>Open Source</li>
+          </ul>
+        </section>
+        <section>
+          <img src="/images/schema.svg">
+        </section>
+        <section>
+          <h1><a href="https://helloiampau/dropbox/djinni">Djinni</a></h1>
+          <h2 style="margin-bottom: 25px;">by <i class="fab fa-dropbox"></i> Dropbox</h2>
+          <div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ZcBtF-JWJhM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </section>
+        <section>
+          <img src="/images/djinni-schema.svg">
+        </section>
+        <section data-state="initialize-code">
+          <asciinema-player id="initialize-code" src="/cast/initialize.cast" preload="true" idle-time-limit="1" rows="40"></asciinema>
+        </section>
+        <section>
+          <h1><i class="far fa-file-code"></i> <div class="inline-code">settings.gradle</div></h1>
+          <pre>
+            <code data-line-numbers="3,4" data-trim data-no-escape>
+include ':app'
+
+include ':janus'
+project(':janus').projectDir = new File(settingsDir, './third_party/janus-client/platforms/android/janus')
+            </code>
+          </pre>
+        </section>
+        <section>
+          <h1><i class="far fa-file-code"></i> <div class="inline-code">app/build.gradle</div></h1>
+          <pre>
+            <code data-line-numbers="30,19-26,7" data-trim data-no-escape>
+apply plugin: 'com.android.application'
+
+android {
+  compileSdkVersion 28
+  defaultConfig {
+    applicationId "com.github.helloiampau.petsapp"
+    minSdkVersion 16
+    targetSdkVersion 28
+    versionCode 1
+    versionName "1.0"
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+  compileOptions {
+    compileOptions {
+      sourceCompatibility JavaVersion.VERSION_1_8
+      targetCompatibility JavaVersion.VERSION_1_8
+    }
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+}
+
+dependencies {
+  implementation project(path: ':janus')
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
+  implementation 'com.android.support:appcompat-v7:28.0.0'
+  implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+  testImplementation 'junit:junit:4.12'
+  androidTestImplementation 'com.android.support.test:runner:1.0.2'
+  androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+            </code>
+          </pre>
+        </section>
+        <section>
+          <h1><i class="far fa-file-code"></i> Code</h1>
+          <img src="/images/studio.png" width="10%">
+        </section>
+        <section>
+          <video style="border-radius: 5%" muted="true" autoplay="true" width="30%">
+            <source src="/images/app.mp4">
+          </video>
+        </section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+        hash: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+    <script src="/js/asciinema-player.js"></script>
+    <script>
+Reveal.addEventListener('run-janus', function() {
+  const p = document.getElementById('run-janus');
+  p.currentTime = 0;
+  p.play();
+});
+
+Reveal.addEventListener('initialize-code', function() {
+  const p = document.getElementById('initialize-code');
+  p.currentTime = 0;
+  p.play();
+});
+    </script>
+	</body>
+</html>

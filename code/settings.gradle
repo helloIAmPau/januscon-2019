@@ -1,0 +1,4 @@
+include ':app'
+
+include ':janus'
+project(':janus').projectDir = new File(settingsDir, './third_party/janus-client/platforms/android/janus')

@@ -1,0 +1,224 @@
+ice_server = record {
+  url: string;
+  username: string;
+  password: string;
+}
+
+janus_conf = interface +j +o {
+  url(): string;
+  iceServers(): list<ice_server>;
+  webrtc(): map<string, string>;
+}
+
+arg_bundle = interface +c {
+  setString(key: string, value: string);
+  getString(key: string): string;
+  setInt(key: string, value: i32);
+  getInt(key: string): i32;
+  setLong(key: string, value: i64);
+  getLong(key: string): i64;
+  setBool(key: string, value: bool);
+  getBool(key: string): bool;
+
+  static create(): arg_bundle;
+}
+
+transport_delegate = interface +j +o {
+  onMessage(response: string, context: arg_bundle);
+}
+
+transport_type = enum {
+  HTTP;
+}
+
+ready_state = enum {
+  OFF;
+  INIT;
+  READY;
+  CLOSING;
+  ERROR;
+}
+
+info = record {
+  name: string;
+  version: i32;
+}
+
+constraints = record {
+  audio: bool;
+  video: bool;
+  offerToReceiveAudio: bool;
+  offerToReceiveVideo: bool;
+}
+
+command = interface +j +o {
+  action(signaling: signaling, peer: peer, data: string);
+}
+
+janus_event = interface +c {
+  data(): string;
+  jsep(): jsep;
+}
+
+plugin_delegate = interface +j +o {
+  onEvent(data: janus_event, context: arg_bundle);
+  onMediaChanged(media: media);
+  onHangup();
+  onDetach();
+  onOffer(sdp: string): string;
+  onAnswer(sdp: string): string;
+}
+
+plugin = interface +c +j +o {
+  init(signaling: signaling, peer: peer);
+  detach();
+  hangup();
+
+  setDelegate(delegate: plugin_delegate);
+
+  dispatch(name: string, data: arg_bundle);
+
+  onEvent(data: janus_event, context: arg_bundle);
+  onMediaChanged(media: media);
+  onHangup();
+  onDetach();
+
+  onOffer(sdp: string, context: arg_bundle);
+  onAnswer(sdp: string, context: arg_bundle);
+  onIceCandidate(candidate: candidate);
+}
+
+plugin_factory = interface +j +o {
+  info(): janus_plugin_info;
+  create(): plugin;
+}
+
+peer_factory = interface +j +o {
+  create(conf: janus_conf, delegate: plugin): peer;
+}
+
+camera_device = enum {
+  FRONT;
+  REAR;
+}
+
+local_video_track = interface +j +o {
+  start(camera: camera_device, width: i32, height: i32, fps: i32);
+  stop();
+  changeResolution(width: i32, height: i32, fps: i32);
+  switchCamera();
+}
+
+local_audio_track = interface +j +o {
+  start();
+  stop();
+}
+
+remote_video_track = interface +j +o {}
+
+audio_device = enum {
+  EARPIECE;
+  SPEAKER;
+}
+
+remote_audio_track = interface +j +o {
+  setOutputDevice(device: audio_device);
+}
+
+media = interface +j +o {
+  localVideoTrack(): local_video_track;
+  localAudioTrack(): local_audio_track;
+  remoteVideoTrack(): remote_video_track;
+  remoteAudioTrack(): remote_audio_track;
+}
+
+peer = interface +j +o {
+  createOffer(constraints: constraints, context: arg_bundle);
+  createAnswer(constraints: constraints, context: arg_bundle);
+  setLocalDescription(jsep: jsep);
+  setRemoteDescription(jsep: jsep);
+  addIceCandidate(candidate: candidate);
+  getMedia(): media;
+  close();
+}
+
+janus_plugin_info = record {
+  id: string;
+  name: string;
+  version: i32;
+}
+
+jsep = interface +c {
+  type(): string;
+  sdp(): string;
+  hasMedia(media: string): bool;
+
+  static create(type: string, sdp: string): jsep;
+}
+
+candidate = record {
+  sdpMid: string;
+  sdpMLineIndex: i32;
+  candidate: string;
+  completed: bool;
+}
+
+signaling = interface +j +o {
+  message(body: string, context: arg_bundle);
+  jsep(body: string, jsep: jsep, context: arg_bundle);
+  trickle(candidate: candidate);
+  attach(id: string, context: arg_bundle);
+  detach();
+  hangup();
+}
+
+protocol = interface +j +o {
+  info(): info;
+
+  readyState(): ready_state;
+  close();
+
+  plugins(): list<janus_plugin_info>;
+  attach(pluginId: string, context: arg_bundle);
+}
+
+protocol_factory = interface +j +o {
+  bootstrap(conf: janus_conf, platform: platform, delegate: janus_delegate): protocol;
+}
+
+janus_error = record {
+  code: i32;
+  reason: string;
+}
+
+janus_delegate = interface +j +o {
+  onJanusError(error: janus_error);
+  onPluginEnabled(id: string, handle: plugin, context: arg_bundle);
+}
+
+platform = interface +c {
+  static create(): platform;
+
+  registerProtocolFactory(factory: protocol_factory);
+  getProtocol(conf: janus_conf, delegate: janus_delegate): protocol;
+
+  registerPeerFactory(factory: peer_factory);
+  createPeer(conf: janus_conf, delegate: plugin): peer;
+
+  registerPluginFactory(pluginFactory: plugin_factory);
+  getPlugin(id: string): plugin;
+  getPlugins():  list<janus_plugin_info>;
+}
+
+janus = interface +c {
+  static create(platform: platform): janus;
+
+  init(conf: janus_conf, delegate: janus_delegate): ready_state;
+
+  close(): ready_state;
+  readyState(): ready_state;
+
+  plugins(): list<janus_plugin_info>;
+  attach(pluginId: string, context: arg_bundle);
+}
+

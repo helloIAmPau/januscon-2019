@@ -1,0 +1,47 @@
+version: '3.7'
+
+services:
+  customapi:
+    build:
+      context: ./examples/custom-api/server
+    volumes:
+      - ./examples/custom-api/server:/app
+    ports:
+      - 3000:3000
+  httpbin:
+    image: kennethreitz/httpbin
+  https:
+    image: outrigger/https-proxy:1.0
+    depends_on:
+      - httpbin
+    environment:
+      UPSTREAM_DOMAIN: httpbin
+      UPSTREAM_PORT: 80
+      PROXY_DOMAIN: https
+  janus:
+    image: helloiampau/janus:854e4
+    security_opt:
+      - seccomp:unconfined
+    volumes:
+      - ./conf:/opt/janus/etc/janus
+    ports:
+      - "8088:8088"
+      - "5001:5000"
+      - "9000-9020:9000-9020/udp"
+  test:
+    security_opt:
+      - seccomp:unconfined
+    build:
+      context: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./CMakeLists.txt:/app/CMakeLists.txt
+      - ./CPPLINT.cfg:/app/CPPLINT.cfg
+      - ./Makefile:/app/Makefile
+      - ./codecov.yml:/app/codecov.yml
+      - ./include/:/app/include/
+      - ./janus-client.djinni:/app/janus-client.djinni
+      - ./src/:/app/src/
+      - ./test/:/app/test/
+    command: bash -c 'mkdir -p /app/build && cd /app && make && cd build && cmake .. && while inotifywait -r -e create ../src ../test ../include/janus --exclude ''\\.o$$''; do cpplint ../include/janus/*.h ../src/*.cc ../test/*.cc && cmake .. && make janus_tests && ./janus_tests; done'
