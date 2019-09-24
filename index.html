@@ -65,25 +65,40 @@
         </section>
         <section>
           <h1><i class="far fa-handshake"></i> Hello!</h1>
+          <aside class="notes">
+            Hello, my name is Pasquale. I'm a software engineer for Statwolf.
+          </aside>
         </section>
         <section data-background-color="#303F4C">
           <a href="https://www.statwolf.com"><img src="/images/statwolf.svg" width="30%"></a>
+          <aside class="notes">
+            In this talk, I'd like to introduce you to my flatmate Boris, a little red shark living in my sitting room.
+          </aside>
         </section>
-        <section>
-          <img src="/images/trip.png" width="80%" style="border-radius: 3%;">
-        </section>
-        <section>
+        <section data-state="boris">
           <h1><i class="fas fa-fish"></i> Boris</h1>
-          <video style="border-radius: 5%" loop="true" muted="true" autoplay="true" width="30%">
+          <video id="boris" style="border-radius: 5%" loop="true" muted="true" autoplay="true" width="30%">
             <source src="/images/boris.mp4">
           </video>
+          <aside class="notes">
+            Boris and I used to have a problem: working for an Irish company from home, very often, like once or twice per month,   I have to go to my company headquarter to meet my colleagues. Of course, Boris can't come with me, and it is always complaining about the fact it is still alone.
+            But Boris is a lucky guy:  I have a background in real-time communication, and I approached the problem in a modern way: I created a startup!
+          </aside>
         </section>
+        <!-- <section> -->
+          <!-- <img src="/images/trip.png" width="80%" style="border-radius: 3%;"> -->
+        <!-- </section> -->
         <section>
           <h1>
             <div><img src="/images/petsapp.svg" width="10%" class="plain" style="background: none"></div>
             <div>PetsApp</div>
           </h1>
           <h2>A video chat for puppies</h2>
+          <aside class="notes">
+            With PetsApp, an owner can communicate with his house pet with a real-time audio video chat.
+
+            In this way, Boris can call me every time it feels alone.
+          </aside>
         </section>
         <section>
           <h1><i class="fas fa-cogs"></i> Application requirements</h1>
@@ -93,6 +108,12 @@
             <li class="fragment"><i class="fas fa-video"></i>The user should watch all the pet feeds at the same time</li>
           </ul>
           <h1 class="fragment">A basic video room!</h1>
+          <aside class="notes">
+            We want this thig to be great, that's why we used WebRTC
+          </aside>
+        </section>
+        <section>
+          <img src="/images/webrtc.png">
         </section>
         <section>
           <h1><i class="fas fa-gift"></i> Minimum viable product</h1>
@@ -103,7 +124,7 @@
           <div style="height: 200px">
             <ul>
               <li class="fragment"><i class="fas fa-users"></i> { User, Room } Management API</li>
-              <li class="fragment"><i class="fas fa-phone"></i> WebRTC Signalling Server</li>
+              <li class="fragment"><i class="fas fa-phone"></i> WebRTC Signaling Server</li>
               <li class="fragment"><i class="fas fa-random"></i> { MC, SF } Unit</li>
             </ul>
           </div>
@@ -121,9 +142,9 @@
         <section>
           <img src="/images/serverless.jpg">
         </section>
-        <section data-state="run-janus">
-          <asciinema-player id="run-janus" src="/cast/runjanus.cast" preload="true" idle-time-limit="1" rows="40"></asciinema>
-        </section>
+        <!-- <section data-state="run-janus"> -->
+          <!-- <asciinema-player id="run-janus" src="/cast/runjanus.cast" preload="true" idle-time-limit="1" rows="40"></asciinema> -->
+        <!-- </section> -->
         <section>
           <h1><i class="fas fa-server"></i> Client requirements</h1>
           <ul>
@@ -133,11 +154,16 @@
           </ul>
         </section>
         <section>
-          <h1><i class="fas fa-heart-broken"></i> No solutions currently available!</h1>
+          <h1><i class="fas fa-heart-broken"></i> No solutions available...</h1>
+          <h1 class="fragment">UNTIL NOW!</h1>
         </section>
-        <section>
+        <section data-transition="fade-out slide-in">
           <h1><a href="https://github.com/helloiampau/janus-client">janus-client SDK</a></h1>
           <h2>handcrafted with <i class="fas fa-heart"></i> by @helloiampau and Meetecho S.R.L.</h2>
+        </section>
+        <section data-background-video="/images/party.mp4" data-background-video-loop="true" data-transition="fade-in slide-out">
+          <h1><a href="https://github.com/helloiampau/janus-client" style="color: white;">janus-client SDK</a></h1>
+          <h2 style="color: white;">handcrafted with <i class="fas fa-heart"></i> by @helloiampau and Meetecho S.R.L.</h2>
         </section>
         <section>
           <h1><a href="https://github.com/helloiampau/janus-client">janus-client SDK</a></h1>
@@ -145,21 +171,278 @@
             <li class="fragment"><i class="fas fa-check"></i> Cross-Platform SDK</li>
             <li class="fragment"><i class="fas fa-mobile"></i> Mobile-First (iOS, Android)</li>
             <li class="fragment"><i class="fas fa-box-open"></i> Supports Janus API out-of-the-box</li>
+            <li class="fragment"><i class="fas fa-stream"></i> Extensible with custom protocols and plugins</li>
             <li class="fragment"><i class="fab fa-github"></i>Open Source</li>
           </ul>
         </section>
         <section>
-          <img src="/images/schema.svg">
+          <img src="/images/wat.jpg">
         </section>
         <section>
-          <h1><a href="https://helloiampau/dropbox/djinni">Djinni</a></h1>
-          <h2 style="margin-bottom: 25px;">by <i class="fab fa-dropbox"></i> Dropbox</h2>
+          <img src="/images/schema.svg">
+          <aside class="notes">
+I want to tell you a story: have you ever tried to integrate c++ code in mobile applications?
+for objective-c world the thing is quite straightforward... the apple compiler understand both c++ and objective c and you can write a mixed module in objective-c++ that looks like a languages frankestein.
+for jni the thing is a little different: I'll show you how a JNI code looks like
+          </aside>
+        </section>
+        <section>
+          <img src="/images/jni.jpg">
+        </section>
+        <section>
           <div>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/ZcBtF-JWJhM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </section>
         <section>
+          <h1><a href="https://helloiampau/dropbox/djinni">Djinni</a></h1>
+          <h2 style="margin-bottom: 25px;">by <i class="fab fa-dropbox"></i> Dropbox</h2>
+          <h2 class="fragment">
+            Djinni is a tool for generating cross-language type declarations and interface bindings. It's designed to connect C++ with either Java or Objective-C.
+          </h2>
+          <h2 class="fragment">
+            Djinni can be used to interface cross-platform C++ library code with platform-specific Java and Objective-C on Android and iOS.
+          </h2>
+        </section>
+        <section>
+          <h1><i class="far fa-file-code"></i> <div class="inline-code">janus-client.djinni</div></h1>
+          <pre>
+            <code style="height: 500px" data-no-escape data-trim>
+ice_server = record {
+  url: string;
+  username: string;
+  password: string;
+}
+
+janus_conf = interface +j +o {
+  url(): string;
+  iceServers(): list<ice_server>;
+  webrtc(): map<string, string>;
+}
+
+arg_bundle = interface +c {
+  setString(key: string, value: string);
+  getString(key: string): string;
+  setInt(key: string, value: i32);
+  getInt(key: string): i32;
+  setLong(key: string, value: i64);
+  getLong(key: string): i64;
+  setBool(key: string, value: bool);
+  getBool(key: string): bool;
+
+  static create(): arg_bundle;
+}
+
+transport_delegate = interface +j +o {
+  onMessage(response: string, context: arg_bundle);
+}
+
+transport_type = enum {
+  HTTP;
+}
+
+ready_state = enum {
+  OFF;
+  INIT;
+  READY;
+  CLOSING;
+  ERROR;
+}
+
+info = record {
+  name: string;
+  version: i32;
+}
+
+constraints = record {
+  audio: bool;
+  video: bool;
+  offerToReceiveAudio: bool;
+  offerToReceiveVideo: bool;
+}
+
+command = interface +j +o {
+  action(signaling: signaling, peer: peer, data: string);
+}
+
+janus_event = interface +c {
+  data(): string;
+  jsep(): jsep;
+}
+
+plugin_delegate = interface +j +o {
+  onEvent(data: janus_event, context: arg_bundle);
+  onMediaChanged(media: media);
+  onHangup();
+  onDetach();
+  onOffer(sdp: string): string;
+  onAnswer(sdp: string): string;
+}
+
+plugin = interface +c +j +o {
+  init(signaling: signaling, peer: peer);
+  detach();
+  hangup();
+
+  setDelegate(delegate: plugin_delegate);
+
+  dispatch(name: string, data: arg_bundle);
+
+  onEvent(data: janus_event, context: arg_bundle);
+  onMediaChanged(media: media);
+  onHangup();
+  onDetach();
+
+  onOffer(sdp: string, context: arg_bundle);
+  onAnswer(sdp: string, context: arg_bundle);
+  onIceCandidate(candidate: candidate);
+}
+
+plugin_factory = interface +j +o {
+  info(): janus_plugin_info;
+  create(): plugin;
+}
+
+peer_factory = interface +j +o {
+  create(conf: janus_conf, delegate: plugin): peer;
+}
+
+camera_device = enum {
+  FRONT;
+  REAR;
+}
+
+local_video_track = interface +j +o {
+  start(camera: camera_device, width: i32, height: i32, fps: i32);
+  stop();
+  changeResolution(width: i32, height: i32, fps: i32);
+  switchCamera();
+}
+
+local_audio_track = interface +j +o {
+  start();
+  stop();
+}
+
+remote_video_track = interface +j +o {}
+
+audio_device = enum {
+  EARPIECE;
+  SPEAKER;
+}
+
+remote_audio_track = interface +j +o {
+  setOutputDevice(device: audio_device);
+}
+
+media = interface +j +o {
+  localVideoTrack(): local_video_track;
+  localAudioTrack(): local_audio_track;
+  remoteVideoTrack(): remote_video_track;
+  remoteAudioTrack(): remote_audio_track;
+}
+
+peer = interface +j +o {
+  createOffer(constraints: constraints, context: arg_bundle);
+  createAnswer(constraints: constraints, context: arg_bundle);
+  setLocalDescription(jsep: jsep);
+  setRemoteDescription(jsep: jsep);
+  addIceCandidate(candidate: candidate);
+  getMedia(): media;
+  close();
+}
+
+janus_plugin_info = record {
+  id: string;
+  name: string;
+  version: i32;
+}
+
+jsep = interface +c {
+  type(): string;
+  sdp(): string;
+  hasMedia(media: string): bool;
+
+  static create(type: string, sdp: string): jsep;
+}
+
+candidate = record {
+  sdpMid: string;
+  sdpMLineIndex: i32;
+  candidate: string;
+  completed: bool;
+}
+
+signaling = interface +j +o {
+  message(body: string, context: arg_bundle);
+  jsep(body: string, jsep: jsep, context: arg_bundle);
+  trickle(candidate: candidate);
+  attach(id: string, context: arg_bundle);
+  detach();
+  hangup();
+}
+
+protocol = interface +j +o {
+  info(): info;
+
+  readyState(): ready_state;
+  close();
+
+  plugins(): list<janus_plugin_info>;
+  attach(pluginId: string, context: arg_bundle);
+}
+
+protocol_factory = interface +j +o {
+  bootstrap(conf: janus_conf, platform: platform, delegate: janus_delegate): protocol;
+}
+
+janus_error = record {
+  code: i32;
+  reason: string;
+}
+
+janus_delegate = interface +j +o {
+  onJanusError(error: janus_error);
+  onPluginEnabled(id: string, handle: plugin, context: arg_bundle);
+}
+
+platform = interface +c {
+  static create(): platform;
+
+  registerProtocolFactory(factory: protocol_factory);
+  getProtocol(conf: janus_conf, delegate: janus_delegate): protocol;
+
+  registerPeerFactory(factory: peer_factory);
+  createPeer(conf: janus_conf, delegate: plugin): peer;
+
+  registerPluginFactory(pluginFactory: plugin_factory);
+  getPlugin(id: string): plugin;
+  getPlugins():  list<janus_plugin_info>;
+}
+
+janus = interface +c {
+  static create(platform: platform): janus;
+
+  init(conf: janus_conf, delegate: janus_delegate): ready_state;
+
+  close(): ready_state;
+  readyState(): ready_state;
+
+  plugins(): list<janus_plugin_info>;
+  attach(pluginId: string, context: arg_bundle);
+}
+
+            </code>
+          </pre>
+        </section>
+        <section>
           <img src="/images/djinni-schema.svg">
+        </section>
+        <section>
+          <h1>
+            <div><img src="/images/petsapp.svg" width="10%" class="plain" style="background: none"></div>
+            <div>PetsApp</div>
+          </h1>
         </section>
         <section data-state="initialize-code">
           <asciinema-player id="initialize-code" src="/cast/initialize.cast" preload="true" idle-time-limit="1" rows="40"></asciinema>
@@ -220,13 +503,299 @@ dependencies {
           </pre>
         </section>
         <section>
+          <h1><i class="far fa-file-code"></i> <div class="inline-code">app/AndroidManifest.xml</div></h1>
+          <pre>
+            <code data-trim data-no-escape data-line-numbers="4-9">
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.github.helloiampau.petsapp">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
+            </code>
+          </pre>
+        </section>
+        <section>
           <h1><i class="far fa-file-code"></i> Code</h1>
           <img src="/images/studio.png" width="10%">
         </section>
         <section>
-          <video style="border-radius: 5%" muted="true" autoplay="true" width="30%">
+          <h1><i class="fas fa-user-friends"></i> Entities</h2>
+          <ul>
+            <li><i class="fas fa-dice-one"></i> Base Service</li>
+            <li><i class="fas fa-puzzle-piece"></i> Plugins</li>
+          </ul>
+          <h2 class="fragment">Communication is event driven based on delegate pattern.</h2>
+        </section>
+        <section data-transition="slide-in fade-out">
+          <h1><i class="far fa-file-code"></i> Initialization Code</h1>
+          <pre>
+            <code class="hljava" data-line-numbers="1" data-trim data-no-escape>
+Janus janus = JanusFactory.create(Commands._context);
+JanusConfImpl conf = new JanusConfImpl();
+conf.url("http://janus.helloiampau.com/janus");
+
+ReadyState readyState = janus.init(conf, new PetsAppJanusDelegate(janus));
+
+if(readyState != ReadyState.READY) {
+  Status.get().error("Unable to connect");
+  return;
+}
+
+janus.attach("janus.plugin.videoroom", ArgBundle.create());
+            </code>
+          </pre>
+        </section>
+        <section data-transition="fade-in fade-out">
+          <h1><i class="far fa-file-code"></i> Initialization Code</h1>
+          <pre>
+            <code class="hljava" data-line-numbers="2-5" data-trim data-no-escape>
+Janus janus = JanusFactory.create(Commands._context);
+JanusConfImpl conf = new JanusConfImpl();
+conf.url("http://janus.helloiampau.com/janus");
+
+ReadyState readyState = janus.init(conf, new PetsAppJanusDelegate(janus));
+
+if(readyState != ReadyState.READY) {
+  Status.get().error("Unable to connect");
+  return;
+}
+
+janus.attach("janus.plugin.videoroom", ArgBundle.create());
+            </code>
+          </pre>
+        </section>
+        <section data-transition="fade-in slide-out">
+          <h1><i class="far fa-file-code"></i> Initialization Code</h1>
+          <pre>
+            <code class="hljava" data-line-numbers="12" data-trim data-no-escape>
+Janus janus = JanusFactory.create(Commands._context);
+JanusConfImpl conf = new JanusConfImpl();
+conf.url("http://janus.helloiampau.com/janus");
+
+ReadyState readyState = janus.init(conf, new PetsAppJanusDelegate(janus));
+
+if(readyState != ReadyState.READY) {
+  Status.get().error("Unable to connect");
+  return;
+}
+
+janus.attach("janus.plugin.videoroom", ArgBundle.create());
+            </code>
+          </pre>
+        </section>
+        <section data-transition="slide-in fade-out">
+          <h1><i class="far fa-file-code"></i> JanusDelegate</h1>
+          <pre>
+            <code class="hljava" data-line-numbers="1-2,4,6-7,30" data-trim data-no-escape>
+@Override
+public void onJanusError(JanusError error) {
+  Status.get().error(error.getReason());
+}
+
+@Override
+public void onPluginEnabled(String id, Plugin handle, ArgBundle context) {
+  if(id.equals("janus.plugin.videoroom")) {
+    Status status = Status.get();
+
+    handle.setDelegate(new PublisherPluginDelegate());
+    status.plugin(handle);
+
+    status.session(this._janus);
+
+    return;
+  }
+
+  if(id.equals("janus.plugin.videoroom.subscriber")) {
+    Status status = Status.get();
+
+    String subscriberid = context.getString("subscriber-id");
+    handle.setDelegate(new SubscriberPluginDelegate(subscriberid));
+
+    Pet pet = status.pets().getValue().get(subscriberid);
+    pet.setHandle(handle);
+
+    return;
+  }
+}
+            </code>
+          </pre>
+        </section>
+        <section data-transition="slide-out fade-in">
+          <h1><i class="far fa-file-code"></i> JanusDelegate</h1>
+          <pre>
+            <code class="hljava" data-line-numbers="6-8,17,11,30" data-trim data-no-escape>
+@Override
+public void onJanusError(JanusError error) {
+  Status.get().error(error.getReason());
+}
+
+@Override
+public void onPluginEnabled(String id, Plugin handle, ArgBundle context) {
+  if(id.equals("janus.plugin.videoroom")) {
+    Status status = Status.get();
+
+    handle.setDelegate(new PublisherPluginDelegate());
+    status.plugin(handle);
+
+    status.session(this._janus);
+
+    return;
+  }
+
+  if(id.equals("janus.plugin.videoroom.subscriber")) {
+    Status status = Status.get();
+
+    String subscriberid = context.getString("subscriber-id");
+    handle.setDelegate(new SubscriberPluginDelegate(subscriberid));
+
+    Pet pet = status.pets().getValue().get(subscriberid);
+    pet.setHandle(handle);
+
+    return;
+  }
+}
+            </code>
+          </pre>
+        </section>
+        <section>
+          <h1><i class="far fa-file-code"></i> PluginDelegate</h1>
+          <pre>
+            <code class="hljava" data-line-numbers="14-33,1-2" data-trim data-no-escape>
+@Override
+public void onEvent(JanusEvent data, ArgBundle context) {
+  try {
+    JSONObject event = new JSONObject(data.data());
+
+    if(event.getString("videoroom").equals("joined")) {
+      Commands.updatePets(event.getJSONArray("publishers"));
+
+      Commands.route("room");
+    }
+  } catch (Exception e) {
+    e.printStackTrace();
+  }
+}
+
+@Override
+public void onMediaChanged(Media media) {}
+
+@Override
+public void onHangup() {}
+
+@Override
+public void onDetach() {}
+
+@Override
+public String onOffer(String sdp) {
+  return sdp;
+}
+
+@Override
+public String onAnswer(String sdp) {
+  return sdp;
+}
+            </code>
+          </pre>
+        </section>
+        <section>
+          <h1><i class="far fa-file-code"></i> Send Commands</h1>
+          <pre>
+            <code class="hljava" data-line-numbers="4-8" data-trim data-no-escape>
+Status status = Status.get();
+Plugin handle = status.plugin().getValue();
+
+ArgBundle bundle = ArgBundle.create();
+bundle.setString("display", username);
+bundle.setInt("room", 1234);
+
+handle.dispatch("join", bundle);
+            </code>
+          </pre>
+        </section>
+        <section>
+          <h1><i class="fas fa-puzzle-piece"></i> Supported plugins</h1>
+          <ul>
+            <li><i class="fas fa-check"></i> Echo Test</li>
+            <li><i class="fas fa-check"></i> Videoroom</li>
+            <li><i class="fas fa-check"></i> Streaming</li>
+          </ul>
+        </section>
+        <section>
+          <h1><i class="far fa-file-code"></i> Media View</h1>
+          <pre>
+            <code data-trim data-line-numbers="7-9" class="hlxml">
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+ xmlns:android="http://schemas.android.com/apk/res/android"
+ xmlns:app="http://schemas.android.com/apk/res-auto"
+ android:layout_width="match_parent"
+ android:layout_height="match_parent"
+ android:orientation="vertical">
+  <LinearLayout
+                                android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                                android:orientation="horizontal">
+    <ImageView
+                                                                    android:id="@+id/logo"
+                                                                                android:layout_width="98dp"
+                                                                                            android:layout_height="40dp"
+                                                                                                        app:srcCompat="@drawable/fish" />
+    <TextView
+                                                                                                                            android:id="@+id/petname"
+                                                                                                                                        android:layout_width="match_parent"
+                                                                                                                                                    android:layout_height="wrap_content"
+                                                                                                                                                                android:textStyle="bold"
+                                                                                                                                                                            android:textSize="30dp"/>
+  </LinearLayout>
+  <com.github.helloiampau.janus.rtc.MediaView
+      android:id="@+id/petvideo"
+      android:layout_width="match_parent"
+      android:layout_height="240dp">
+
+  </com.github.helloiampau.janus.rtc.MediaView>
+
+</LinearLayout>
+            </code>
+          </pre>
+        </section>
+        <section>
+          <h1><i class="far fa-file-code"></i> Media View</h1>
+          <img src="/images/mediaview.png" width="50%">
+        </section>
+        <section>
+          <h1><i class="far fa-file-code"></i> Code</h1>
+          <img src="/images/studio.png" width="10%">
+        </section>
+        <section data-state="app">
+          <video id="app" style="border-radius: 5%" muted="true" autoplay="true" width="30%">
             <source src="/images/app.mp4">
           </video>
+        </section>
+        <section>
+          <img src="/images/thanks.jpg">
         </section>
 			</div>
 		</div>
@@ -259,6 +828,18 @@ Reveal.addEventListener('initialize-code', function() {
   const p = document.getElementById('initialize-code');
   p.currentTime = 0;
   p.play();
+});
+
+Reveal.addEventListener('boris', function() {
+  const v = document.getElementById('boris');
+  v.currentTime = 0;
+  v.play();
+});
+
+Reveal.addEventListener('app', function() {
+  const v = document.getElementById('app');
+  v.currentTime = 0;
+  v.play();
 });
     </script>
 	</body>

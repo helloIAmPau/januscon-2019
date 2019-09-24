@@ -6,12 +6,10 @@ import com.github.helloiampau.janus.JanusConfImpl;
 import com.github.helloiampau.janus.JanusFactory;
 import com.github.helloiampau.janus.generated.ArgBundle;
 import com.github.helloiampau.janus.generated.CameraDevice;
-import com.github.helloiampau.janus.generated.Command;
 import com.github.helloiampau.janus.generated.Janus;
 import com.github.helloiampau.janus.generated.Media;
 import com.github.helloiampau.janus.generated.Plugin;
 import com.github.helloiampau.janus.generated.ReadyState;
-import com.github.helloiampau.janus.rtc.LocalVideoTrackImpl;
 import com.github.helloiampau.petsapp.delegates.PetsAppJanusDelegate;
 
 import org.json.JSONArray;

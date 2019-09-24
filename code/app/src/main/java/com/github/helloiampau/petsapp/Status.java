@@ -29,14 +29,6 @@ public class Status extends ViewModel {
     this._plugin.postValue(plugin);
   }
 
-  private MutableLiveData<Boolean> _loggedIn = new MutableLiveData<>();
-  public LiveData<Boolean> loggedIn() {
-    return _loggedIn;
-  }
-  public void loggedIn(boolean loggdIn) {
-    this._loggedIn.postValue(loggdIn);
-  }
-
   private MutableLiveData<String> _route = new MutableLiveData<>();
   public LiveData<String> route() {
     return _route;

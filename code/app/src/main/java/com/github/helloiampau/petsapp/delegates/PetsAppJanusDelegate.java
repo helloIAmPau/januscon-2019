@@ -5,7 +5,6 @@ import com.github.helloiampau.janus.generated.Janus;
 import com.github.helloiampau.janus.generated.JanusDelegate;
 import com.github.helloiampau.janus.generated.JanusError;
 import com.github.helloiampau.janus.generated.Plugin;
-import com.github.helloiampau.petsapp.Commands;
 import com.github.helloiampau.petsapp.Pet;
 import com.github.helloiampau.petsapp.Status;
 
@@ -25,8 +24,6 @@ public class PetsAppJanusDelegate extends JanusDelegate {
   public void onPluginEnabled(String id, Plugin handle, ArgBundle context) {
     if(id.equals("janus.plugin.videoroom")) {
       Status status = Status.get();
-
-      status.loggedIn(false);
 
       handle.setDelegate(new PublisherPluginDelegate());
       status.plugin(handle);
